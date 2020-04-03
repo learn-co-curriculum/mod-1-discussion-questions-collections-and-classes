@@ -60,6 +60,32 @@ pokemon = [
 }
 ]
 
+def bulbasuar_ability(pokemon)
+  pokemon[0][:abilities][0][:ability][:url]
+end
+
+def first(pokemon)
+  pokemon.find { |pokemon| pokemon[:base_experience] > 40 }
+end
+
+def all_over_40(pokemon)
+  pokemon.select { |pokemon| pokemon[:base_experience] > 40 }
+end
+
+def all_names(pokemon)
+  pokemon.map { |pokemon| pokemon[:name] }
+end
+
+def any_greater_than_60(pokemon)
+  pokemon.any? { |pokemon| pokemon[:weight] > 60 }
+end
+
+
+pp any_greater_than_60(pokemon)
+pp bulbasuar_ability(pokemon)
+pp first(pokemon)
+pp all_over_40(pokemon)
+pp all_names(pokemon)
 
 # How would you get the url for Bulbasaur's ability?
 # How would you return the first pokemon with base experience over 40?
