@@ -20,3 +20,47 @@ sandwich_photo.comments
 
 Comment.all
 #=> [#<Comment:0x00007fae28043700>]
+class User 
+    attr_accessor :name
+    @@all = [] 
+    def initialize(name)
+        @name = name 
+        @@all << self
+    end 
+    def photos
+        Photo.all.select { |photo| photo.user == self}
+    end
+end 
+class Photo
+    attr_accessor :user 
+    @@all = []
+    def initialize()
+        @@all << self
+    end 
+    def comments 
+        Comment.all.select { |comment| comment.photo == self}
+    end 
+    def make_comment(comment)
+        com = Comment.new(comment)
+        com.photo = self 
+    end
+    def self.all
+        @@all
+    end
+end 
+class Comment
+    attr_accessor :photo
+    @@all = [] 
+    def initialize(comment)
+        @comment = comment 
+        @@all << self 
+    end 
+    def self.all 
+        @@all 
+    end 
+end 
+
+
+
+
+
