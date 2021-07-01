@@ -1,8 +1,24 @@
 # Finish the implementation of the Car class so it has the functionality described below
+#Claude, Yann, Julian, Sam G, Joanna
 
 class Car
 
+  attr_reader :make, :model, :drive
+  @@all = []
 
+  def initialize(make, model)
+    @make = make
+    @model = model
+    @@all << self
+  end
+
+  def self.drive
+    "VROOOOOOOOOOOOM!"
+  end
+
+  def self.all
+    @@all
+  end
 
 end
 
