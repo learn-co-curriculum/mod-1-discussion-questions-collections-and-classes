@@ -2,8 +2,23 @@
 
 class Car
 
+attr_reader :make, :model 
 
+@@all = []
 
+  def initialize(make: Make, model: Model)
+    @make = make
+    @model = model
+    @@all << self
+  end
+
+  def self.drive
+    puts "VROOOOOOOOOOOOM!"
+  end
+
+  def self.all
+    @@all
+  end
 end
 
 volvo_lightning = Car.new("Volvo", "Lightning")
